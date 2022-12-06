@@ -48,7 +48,7 @@ fn read_input(input: &str) -> Vec<Rucksack> {
 }
 
 pub fn run() {
-    println!("=== Day 4 ===");
+    println!("=== Day 3 ===");
     part1(INPUT);
     part2(INPUT);
     println!("=============");
