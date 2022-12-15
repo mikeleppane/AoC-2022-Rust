@@ -1,7 +1,6 @@
 use std::collections::HashSet;
 
 const INPUT: &str = include_str!("./input.txt");
-const TEST_INPUT: &str = include_str!("./test_input.txt");
 
 fn read_input(input: &str) -> Vec<char> {
     input.chars().collect::<Vec<char>>()
