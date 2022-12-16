@@ -1,9 +1,12 @@
+extern crate core;
+
 mod day_10;
 mod day_3;
 mod day_4;
 mod day_5;
 mod day_6;
 mod day_8;
+mod day_9;
 
 use day_10::day10;
 use day_3::day3;
@@ -11,6 +14,7 @@ use day_4::day4;
 use day_5::day5;
 use day_6::day6;
 use day_8::day8;
+use day_9::day9;
 
 fn main() {
     println!("======*****======= AoC 2022 Solutions ======*****=======");
@@ -21,5 +25,6 @@ fn main() {
     day5::run();
     day6::run();
     day8::run();
+    day9::run();
     day10::run();
 }

@@ -1,9 +1,5 @@
-use nom::combinator::map;
-use nom::error::ErrorKind::NoneOf;
-use std::cmp::max_by_key;
-use std::collections::VecDeque;
-
 const TEST_INPUT: &str = include_str!("./test_input.txt");
+const INPUT: &str = include_str!("./input.txt");
 
 #[derive(Clone, Copy, PartialEq, Eq, Hash)]
 pub(crate) struct GridCoord {
@@ -70,8 +66,6 @@ where
         self.height
     }
 }
-
-const INPUT: &str = include_str!("./input.txt");
 
 fn create_grid_from_input(input: &str) -> Grid<usize> {
     let width = input.lines().next().unwrap().len();
