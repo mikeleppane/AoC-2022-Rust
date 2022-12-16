@@ -1,3 +1,4 @@
+use std::cell::RefCell;
 use std::collections::HashSet;
 use std::iter;
 use std::num::ParseIntError;
@@ -37,7 +38,7 @@ impl Head {
         }
     }
 
-    fn move_head(&mut self, command: Command, tails: &mut [Tail]) {
+    fn move_head(&mut self, command: Command, tails: &[RefCell<Tail>]) {
         for step in iter::repeat(1).take(command.steps) {
             match command.direction {
                 Direction::Up => self.coord.y += step as isize,
@@ -46,14 +47,13 @@ impl Head {
                 Direction::Left => self.coord.x -= step as isize,
             }
             let mut new_coord = self.coord.clone();
-            for (index, tail) in tails.iter_mut().enumerate() {
+            for (index, tail) in tails.iter().enumerate() {
                 if index == 0 {
-                    new_coord = tail.move_tail(&new_coord);
+                    tail.borrow_mut().move_tail(&new_coord);
                     continue;
                 }
-                {
-                    new_coord = tail.move_tail(&new_coord);
-                }
+                let nn = tails[index - 1].borrow().get_pos();
+                new_coord = tail.borrow_mut().move_tail(&nn);
             }
         }
     }
@@ -197,7 +197,7 @@ impl FromStr for Command {
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         let (direction, steps) = s
-            .split_once(" ")
+            .split_once(' ')
             .unwrap_or_else(|| panic!("Could not split str {} ", s));
         let steps = steps.parse::<u32>()?;
 
@@ -214,7 +214,8 @@ fn read_input(input: &str) -> Vec<Command> {
     for line in input.lines() {
         let command = Command::from_str(line.trim());
         commands.push(
-            command.expect(format!("Failure when creating command from a line: {}", line).as_str()),
+            command
+                .unwrap_or_else(|_| panic!("Failure when creating command from a line: {}", line)),
         )
     }
     commands
@@ -231,26 +232,27 @@ pub fn run() {
 fn part1(input: &str) -> usize {
     let commands = read_input(input);
     let mut head = Head::new();
-    let mut tails = Vec::<Tail>::new();
-    tails.push(Tail::new());
+    let tails = vec![RefCell::new(Tail::new())];
     for command in commands {
-        head.move_head(command, &mut tails)
+        head.move_head(command, &tails)
     }
 
-    tails.last().unwrap().visited_positions.len()
+    let visited_places_by_tail = tails.last().unwrap().borrow().visited_positions.len();
+    visited_places_by_tail
 }
 
 fn part2(input: &str) -> usize {
     let commands = read_input(input);
     let mut head = Head::new();
-    let mut tails = Vec::<Tail>::new();
+    let mut tails = Vec::<RefCell<Tail>>::new();
     for _ in 0..9 {
-        tails.push(Tail::new());
+        tails.push(RefCell::new(Tail::new()));
     }
     for command in commands {
-        head.move_head(command, &mut tails)
+        head.move_head(command, &tails)
     }
-    tails.last().unwrap().visited_positions.len()
+    let visited_places_by_tail = tails.last().unwrap().borrow().visited_positions.len();
+    visited_places_by_tail
 }
 
 #[cfg(test)]
