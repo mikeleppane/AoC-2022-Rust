@@ -1,6 +1,7 @@
 use std::collections::HashSet;
 
 const INPUT: &str = include_str!("./input.txt");
+#[allow(dead_code)]
 const TEST_INPUT: &str = include_str!("./test_input.txt");
 
 struct Rucksack {

@@ -4,7 +4,9 @@ use std::iter;
 use regex::Regex;
 
 const INPUT: &str = include_str!("./input.txt");
+#[allow(dead_code)]
 const TEST_INPUT: &str = include_str!("./test_input.txt");
+#[allow(dead_code)]
 const TEST_STACK: &str = "N,Z;D,C,M;P";
 const STACK: &str = "R,H,M,P,Z;B,J,C,P;D,C,L,G,H,N,S;L,R,S,Q,D,M,T,F;M,Z,T,B,Q,P,S,F;G,B,Z,S,F,T;V,R,N;M,C,V,D,T,L,G,P;L,M,F,J,N,Q,W";
 

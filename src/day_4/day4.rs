@@ -4,6 +4,7 @@ use std::num::ParseIntError;
 use std::str::FromStr;
 
 const INPUT: &str = include_str!("./input.txt");
+#[allow(dead_code)]
 const TEST_INPUT: &str = include_str!("./test_input.txt");
 
 struct Pair {

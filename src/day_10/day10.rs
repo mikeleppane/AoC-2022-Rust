@@ -1,6 +1,7 @@
-use std::io::{repeat, Read};
+#[allow(dead_code)]
 
 const INPUT: &str = include_str!("./input.txt");
+#[allow(dead_code)]
 const TEST_INPUT: &str = include_str!("./test_input.txt");
 
 #[derive(Debug)]
@@ -15,13 +16,15 @@ struct Program {
     value: Option<i32>,
 }
 
+#[allow(dead_code)]
 #[derive(Debug)]
-struct CRT {
+struct Crt {
     data: Vec<Vec<&'static str>>,
     size: (u8, u8),
 }
 
-impl CRT {
+impl Crt {
+    #[allow(dead_code)]
     fn new(new_value: &'static str, size: (u8, u8)) -> Self {
         let mut crt = Vec::<Vec<&'static str>>::new();
         let row = vec![new_value; (size.0 * size.1) as usize];
@@ -113,8 +116,8 @@ fn part1(input: &str) -> i32 {
     signal_strength
 }
 
-fn part2(input: &str) {
-    let crt = CRT::new("#", (6, 40));
+fn part2(_input: &str) {
+    let _crt = Crt::new("#", (6, 40));
 }
 
 #[cfg(test)]
