@@ -2,6 +2,7 @@ extern crate core;
 
 mod day_10;
 mod day_14;
+mod day_17;
 mod day_3;
 mod day_4;
 mod day_5;
@@ -11,6 +12,7 @@ mod day_9;
 
 use day_10::day10;
 use day_14::day14;
+use day_17::day17;
 use day_3::day3;
 use day_4::day4;
 use day_5::day5;
@@ -30,4 +32,5 @@ fn main() {
     day9::run();
     day10::run();
     day14::run();
+    day17::run();
 }
