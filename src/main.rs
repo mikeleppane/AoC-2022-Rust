@@ -11,6 +11,7 @@ mod day_5;
 mod day_6;
 mod day_8;
 mod day_9;
+mod day_2;
 
 use day_1::day1;
 use day_10::day10;
