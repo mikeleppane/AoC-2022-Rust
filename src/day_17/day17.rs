@@ -185,10 +185,10 @@ fn read_jet_pattern(input: &str) -> Vec<char> {
 pub fn run() {
     println!("=== Day 17 ===");
     println!("Day 17 part 1, solution: {}", solve(INPUT, 2022));
-    println!(
-        "Day 14 part 2, solution: {}",
-        solve(INPUT, 1_000_000_000_000)
-    );
+    // println!(
+    //     "Day 14 part 2, solution: {}",
+    //     solve(INPUT, 1_000_000_000_000)
+    // );
     println!("=============");
     println!();
 }
