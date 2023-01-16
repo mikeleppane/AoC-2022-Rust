@@ -35,8 +35,8 @@ impl Crt {
     }
 
     fn index(&self, n: usize) -> &'static str {
-        let row = (n / self.size.1 as usize) as usize;
-        let column = (n % self.size.1 as usize) as usize;
+        let row = n / self.size.1 as usize;
+        let column = n % self.size.1 as usize;
         self.data[row][column]
     }
 

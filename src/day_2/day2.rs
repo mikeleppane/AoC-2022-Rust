@@ -1,6 +1,3 @@
-use itertools::Itertools;
-use nom::combinator::map;
-use nom::Parser;
 use std::str::FromStr;
 
 const INPUT: &str = include_str!("./input.txt");
@@ -177,8 +174,9 @@ fn part2(input: &str) -> usize {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
     use std::assert_eq;
+
+    use super::*;
 
     #[test]
     fn part1_works_with_test_input() {
