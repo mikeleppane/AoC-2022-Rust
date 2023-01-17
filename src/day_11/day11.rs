@@ -69,14 +69,8 @@ impl Monkey {
             self.operation_value
         };
         match self.operation_type {
-            OperationType::Plus => {
-                let worry_level = (item + factor) as f64 % common_multiple as f64;
-                worry_level.floor() as u64
-            }
-            OperationType::Multiple => {
-                let worry_level = (item * factor) as f64 % common_multiple as f64;
-                worry_level.floor() as u64
-            }
+            OperationType::Plus => (item + factor) % common_multiple,
+            OperationType::Multiple => (item * factor) % common_multiple,
         }
     }
 

@@ -13,10 +13,13 @@ use day_6::day6;
 use day_8::day8;
 use day_9::day9;
 
+use crate::day_15::day15;
+
 mod day_1;
 mod day_10;
 mod day_11;
 mod day_14;
+mod day_15;
 mod day_17;
 mod day_2;
 mod day_20;
@@ -31,16 +34,17 @@ fn main() {
     println!("======*****======= AoC 2022 Solutions ======*****=======");
     println!();
     println!();
-    day1::run();
-    day3::run();
-    day4::run();
-    day5::run();
-    day6::run();
-    day8::run();
-    day9::run();
-    day10::run();
-    day11::run();
-    day14::run();
-    day17::run();
-    day20::run();
+    // day1::run();
+    // day3::run();
+    // day4::run();
+    // day5::run();
+    // day6::run();
+    // day8::run();
+    // day9::run();
+    // day10::run();
+    // day11::run();
+    // day14::run();
+    day15::run();
+    // day17::run();
+    // day20::run();
 }
